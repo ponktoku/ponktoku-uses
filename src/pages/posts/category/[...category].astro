@@ -39,17 +39,17 @@ const { posts } = Astro.props;
     <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
       {
         posts.map((post) => {
-          const { image, title, description } = post.data
+          const { imageUrl, imageAlt, title, description } = post.data
             return (
               <li class="text-center mb-4">
                 <a href={`/posts/${post.slug}`}>
                   <div class="w-full h-80 sm:h-48 overflow-hidden">
                     <Image 
                     class="border border-slate-300 dark:border-zinc-700 rounded-xl object-cover w-full h-full" 
-                    src={image.url} 
+                    src={imageUrl} 
                     width={720} 
                     height={720 / 1.777} 
-                    alt={image.alt} 
+                    alt={imageAlt} 
                     loading="lazy" 	
                   />
                   </div>
