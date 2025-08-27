@@ -42,7 +42,7 @@ const { posts } = Astro.props;
           const { imageUrl, imageAlt, title, description } = post.data
             return (
               <li class="text-center mb-4">
-                <a href={`/posts/${post.slug}`}>
+                <a href={`/posts/${post.id}`}>
                   <div class="w-full h-80 sm:h-48 overflow-hidden">
                     <Image 
                     class="border border-slate-300 dark:border-zinc-700 rounded-xl object-cover w-full h-full" 

@@ -1,20 +1,20 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
 import PostLayout from '@/layouts/PostLayout.astro';
 import { Image } from 'astro:assets';
 import Prose from "@/components/Prose.astro";
 
 export async function getStaticPaths() {
-  const allPosts = await getCollection('posts');
-  return allPosts.map(entry => ({
-    params: { slug: entry.slug }, props: { entry },
+  const allPosts: CollectionEntry<'posts'>[] = await getCollection('posts');
+  return allPosts.map(post => ({
+    params: { slug: post.id }, props: { post },
   }));
 }
 
-const { entry } = Astro.props;
-const {title, description, category, createdAt, updatedAt, imageUrl, imageAlt} = entry.data;
+const { post } = Astro.props;
+const {title, description, category, createdAt, updatedAt, imageUrl, imageAlt} = post.data;
 
-const { Content } = await entry.render();
+const { Content } = await render(post);
 ---
 
 <PostLayout title={`I use ${title} - Danny Bao`}>

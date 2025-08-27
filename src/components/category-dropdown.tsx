@@ -1,4 +1,3 @@
-import { getCollection } from "astro:content";
 import { Button } from "./ui/button";
 import {
   DropdownMenu,

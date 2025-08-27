@@ -14,6 +14,7 @@ const postsCollection = defineCollection({
       imageUrl: image(),
       imageAlt: z.string(),
       category: z.string(),
+      slug: z.string(),
     }),
 });
 
